@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EIDOS Studio — AI 코드 에이전트</title>
+<title>EIDOS Studio — AI Code Agent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -34,7 +34,7 @@ body {
   cursor: default;
 }
 
-/* ── 배경 격자 ── */
+/* ── background grid ── */
 body::before {
   content: '';
   position: fixed; inset: 0;
@@ -46,7 +46,7 @@ body::before {
   z-index: 0;
 }
 
-/* ── 네온 오브 ── */
+/* ── neon orbs ── */
 .orb {
   position: fixed;
   border-radius: 50%;
@@ -61,7 +61,7 @@ body::before {
 @keyframes drift { from { transform: translate(0,0); } to { transform: translate(30px, -30px); } }
 @keyframes pulse-orb { 0%,100% { opacity:0.3; transform:translate(-50%,-50%) scale(1); } 50% { opacity:0.6; transform:translate(-50%,-50%) scale(1.2); } }
 
-/* ── 공통 ── */
+/* ── common ── */
 section { position: relative; z-index: 1; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
@@ -177,7 +177,7 @@ nav {
   background: rgba(0,229,255,0.05);
 }
 
-/* ── 코드 데모 ── */
+/* ── code demo ── */
 .code-demo {
   margin-top: 80px; width: 100%; max-width: 780px;
   animation: fadeUp 0.8s 0.4s ease both;
@@ -211,7 +211,7 @@ nav {
 .code-num { color: #fb923c; }
 .code-var { color: var(--purple2); }
 
-/* 타이핑 커서 */
+/* typing cursor */
 .cursor { display: inline-block; width: 2px; height: 1em; background: var(--cyan); animation: cursor-blink 1s infinite; vertical-align: text-bottom; margin-left: 2px; }
 @keyframes cursor-blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
 
@@ -430,7 +430,7 @@ footer {
 }
 .footer-text { font-size: 0.8rem; color: var(--muted); }
 
-/* ── 애니메이션 ── */
+/* ── animations ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -441,7 +441,7 @@ footer {
 }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* ── 반응형 ── */
+/* ── responsive ── */
 @media (max-width: 640px) {
   nav { padding: 12px 16px; }
   .nav-links { display: none; }
@@ -461,33 +461,33 @@ footer {
 <nav>
   <div class="nav-logo">EIDOS</div>
   <div class="nav-links">
-    <a href="#features">기능</a>
-    <a href="#how">사용법</a>
-    <a href="#pricing">가격</a>
+    <a href="#features">Features</a>
+    <a href="#how">How It Works</a>
+    <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="https://kaausia.gumroad.com" class="nav-cta" target="_blank">크레딧 충전 →</a>
+  <a href="https://kaausia.gumroad.com" class="nav-cta" target="_blank">Buy Credits →</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">AI Code Agent · 출시</div>
+  <div class="hero-badge">AI Code Agent · LIVE</div>
 
   <h1 class="hero-title">
-    <div class="line1">코드를 짜는 건</div>
-    <div class="line2">EIDOS에게</div>
+    <div class="line1">Let the AI</div>
+    <div class="line2">Write Your Code</div>
   </h1>
 
   <p class="hero-sub">
-    버그 수정, 기능 추가, 리팩토링 — <strong>버튼 하나</strong>로.<br>
-    당신은 아이디어만 내세요.
+    Bug fixes, feature additions, refactoring — with <strong>one click</strong>.<br>
+    You bring the ideas. EIDOS does the rest.
   </p>
 
   <div class="hero-btns">
     <a href="https://kaausia.gumroad.com" class="btn-primary" target="_blank">
-      ⚡ 지금 시작하기 — 무료 100cr
+      ⚡ Get Started Free — 100 Credits
     </a>
-    <a href="#features" class="btn-secondary">기능 보기 →</a>
+    <a href="#features" class="btn-secondary">See Features →</a>
   </div>
 
   <div class="code-demo">
@@ -499,16 +499,16 @@ footer {
         <span class="code-filename">main.py — EIDOS Studio</span>
       </div>
       <div class="code-body">
-<span class="code-comment"># Before: SQL 인젝션 취약점 있는 코드</span>
+<span class="code-comment"># Before: Vulnerable code with SQL injection</span>
 <span class="code-keyword">def</span> <span class="code-fn">get_user</span>(user_id, db):
     result = db.query(<span class="code-str">"SELECT * FROM users WHERE id="</span> + str(user_id))
     password = result[<span class="code-num">0</span>][<span class="code-str">"password"</span>]
-    print(<span class="code-str">"password: "</span> + password)  <span class="code-comment"># 🚨 위험</span>
+    print(<span class="code-str">"password: "</span> + password)  <span class="code-comment"># 🚨 dangerous</span>
     <span class="code-keyword">return</span> result[<span class="code-num">0</span>]
 
-<span class="code-comment"># ✅ EIDOS가 1초 만에 수정한 결과</span>
+<span class="code-comment"># ✅ Fixed by EIDOS in seconds</span>
 <span class="code-keyword">def</span> <span class="code-fn">get_user</span>(user_id: <span class="code-var">int</span>, db) -> <span class="code-var">Optional</span>[<span class="code-var">dict</span>]:
-    <span class="code-comment"># FIX: 파라미터 바인딩으로 SQL 인젝션 차단</span>
+    <span class="code-comment"># FIX: Parameterized query prevents SQL injection</span>
     result = db.query(<span class="code-str">"SELECT id, name FROM users WHERE id=?"</span>, (user_id,))
     <span class="code-keyword">return</span> result[<span class="code-num">0</span>] <span class="code-keyword">if</span> result <span class="code-keyword">else</span> <span class="code-var">None</span><span class="cursor"></span>
       </div>
@@ -519,40 +519,40 @@ footer {
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="container">
-    <div class="section-label">핵심 기능</div>
-    <h2 class="section-title">에이전트가 코드를 대신 짭니다</h2>
-    <p class="section-sub">반복적인 코딩 작업은 EIDOS에게 맡기고, 당신은 더 중요한 일에 집중하세요.</p>
+    <div class="section-label">FEATURES</div>
+    <h2 class="section-title">Your AI Coding Partner</h2>
+    <p class="section-sub">repetitive coding tasks Write Your Code to EIDOS, Focus on what actually matters.</p>
 
     <div class="features-grid">
       <div class="feature-card reveal">
         <div class="feature-icon">🛠</div>
-        <div class="feature-title">자동 버그 수정</div>
-        <div class="feature-desc">SQL 인젝션, 타입 오류, 논리 버그를 자동으로 탐지하고 수정합니다. 수정 이유를 주석으로 설명해드립니다.</div>
+        <div class="feature-title">Auto Bug Fixing</div>
+        <div class="feature-desc">Automatically detects and fixes SQL injection, type errors, and logic bugs. Each fix comes with an explanatory comment.</div>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">✨</div>
-        <div class="feature-title">기능 자동 추가</div>
-        <div class="feature-desc">기존 코드 스타일을 분석하고, 새 기능을 자연스럽게 통합합니다. 유효성 검사, 캐싱, 로깅도 자동으로.</div>
+        <div class="feature-title">Automatic Feature Addition</div>
+        <div class="feature-desc">Analyzes your existing code style and integrates new features seamlessly. Validation, caching, and logging included.</div>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">♻️</div>
-        <div class="feature-title">스마트 리팩토링</div>
-        <div class="feature-desc">복잡하고 지저분한 코드를 클린 코드 원칙에 맞게 정리합니다. 타입 힌트, 함수 분리, 중복 제거까지.</div>
+        <div class="feature-title">Smart Refactoring</div>
+        <div class="feature-desc">Transforms messy code into clean, readable structure. Type hints, function splitting, and deduplication handled automatically.</div>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">🤖</div>
-        <div class="feature-title">에이전트 파이프라인</div>
-        <div class="feature-desc">여러 AI 노드를 연결해 복잡한 작업을 자동화합니다. 코드 분석 → 수정 → 테스트 생성을 한 번에.</div>
+        <div class="feature-title">Agent Pipeline</div>
+        <div class="feature-desc">Chain multiple AI nodes to automate complex workflows. Analyze → Fix → Generate Tests in one shot.</div>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">📝</div>
-        <div class="feature-title">문서 자동 생성</div>
-        <div class="feature-desc">모든 함수에 Docstring을 달고 README를 자동으로 작성합니다. 유지보수가 훨씬 쉬워집니다.</div>
+        <div class="feature-title">Auto Documentation</div>
+        <div class="feature-desc">Generates Docstrings for every function and writes your README automatically. Maintenance becomes effortless.</div>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">🔒</div>
-        <div class="feature-title">보안 감사</div>
-        <div class="feature-desc">OWASP 기준으로 보안 취약점을 탐지하고 패치합니다. 배포 전 필수 보안 점검을 자동화하세요.</div>
+        <div class="feature-title">Security Audit</div>
+        <div class="feature-desc">Detects vulnerabilities based on OWASP standards and patches them. Automate your pre-deployment security check.</div>
       </div>
     </div>
   </div>
@@ -561,33 +561,33 @@ footer {
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="container">
-    <div class="section-label">사용 방법</div>
-    <h2 class="section-title">3단계면 충분합니다</h2>
-    <p class="section-sub">복잡한 설정 없이 바로 시작할 수 있습니다.</p>
+    <div class="section-label">HOW IT WORKS</div>
+    <h2 class="section-title">Three Steps. That's It.</h2>
+    <p class="section-sub">No complex setup. Start in minutes.</p>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
         <div class="step-content">
-          <div class="step-title">앱을 다운로드하고 실행하세요</div>
-          <div class="step-desc">EIDOS Studio를 설치하면 체험형 온보딩이 시작됩니다. 가입 없이 바로 AI 코드 수정을 체험할 수 있습니다. 무료로 100 크레딧이 지급됩니다.</div>
-          <span class="step-tag">무료 100cr 자동 지급</span>
+          <div class="step-title">Download and launch the app</div>
+          <div class="step-desc">Install EIDOS Studio and an interactive onboarding begins. No sign-up needed — just launch and experience AI code editing. 100 free credits on first run.</div>
+          <span class="step-tag">100 free credits on launch</span>
         </div>
       </div>
       <div class="step">
         <div class="step-num">02</div>
         <div class="step-content">
-          <div class="step-title">코드를 붙여넣고 버튼을 누르세요</div>
-          <div class="step-desc">Fix Bug, Add Feature, Refactor 중 원하는 작업을 선택하면 AI가 즉시 수정을 시작합니다. 평균 5~10초 내에 결과가 나옵니다.</div>
-          <span class="step-tag">평균 응답 5초</span>
+          <div class="step-title">Paste your code and click a button</div>
+          <div class="step-desc">Choose Fix Bug, Add Feature, or Refactor. The AI starts working immediately. Results in 5–10 seconds on average.</div>
+          <span class="step-tag">Avg. response: 5 seconds</span>
         </div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
         <div class="step-content">
-          <div class="step-title">크레딧을 충전해서 계속 사용하세요</div>
-          <div class="step-desc">무료 크레딧을 다 쓰면 라이선스 키로 간편하게 충전할 수 있습니다. 충전한 크레딧은 만료되지 않습니다.</div>
-          <span class="step-tag">크레딧 무기한 유효</span>
+          <div class="step-title">Top up credits and keep going</div>
+          <div class="step-desc">Once your free credits run out, recharge with a license key. Credits never expire.</div>
+          <span class="step-tag">Credits never expire</span>
         </div>
       </div>
     </div>
@@ -597,57 +597,50 @@ footer {
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="container">
-    <div class="section-label">요금제</div>
-    <h2 class="section-title">필요한 만큼만 충전하세요</h2>
-    <p class="section-sub">구독 없이 크레딧 방식으로 유연하게 사용하세요.</p>
+    <div class="section-label">PRICING</div>
+    <h2 class="section-title">Pay for What You Use</h2>
+    <p class="section-sub">No subscriptions. Credit-based, flexible, and fair.</p>
 
     <div class="pricing-grid">
       <div class="price-card">
         <div class="price-name">STARTER</div>
         <div class="price-amount">$9<span></span></div>
-        <div class="price-credits">500 크레딧</div>
+        <div class="price-credits">500 credits</div>
         <ul class="price-features">
-          <li>AI 채팅 500회</li>
-          <li>코드 수정 166회</li>
-          <li>보안 감사 포함</li>
-          <li>크레딧 무기한 유효</li>
+          <li>500 AI chat responses</li>
+          <li>166 code edits</li>
+          <li>Security Audit included</li>
+          <li>Credits never expire</li>
         </ul>
-        <a href="https://kaausia.gumroad.com" class="price-btn price-btn-secondary" target="_blank">구매하기</a>
-      </div>
-
-      <div class="price-card popular">
-        <div class="popular-badge">가장 인기</div>
+        <a href="https://kaausia.gumroad.com/l/eidos-credits-500" class="price-btn price-btn-secondary" target="_blank">Buy Now</a>
+        <div class="popular-badge">Most Popular</div>
         <div class="price-name">PRO</div>
         <div class="price-amount">$19<span></span></div>
-        <div class="price-credits">1,200 크레딧</div>
+        <div class="price-credits">1,200 credits</div>
         <ul class="price-features">
-          <li>AI 채팅 1,200회</li>
-          <li>코드 수정 400회</li>
-          <li>에이전트 파이프라인 활성화</li>
-          <li>멀티파일 동시 수정</li>
-          <li>33% 더 저렴</li>
+          <li>1,200 AI chat responses</li>
+          <li>400 code edits</li>
+          <li>Agent Pipeline unlocked</li>
+          <li>Multi-file editing</li>
+          <li>33% cheaper per credit</li>
         </ul>
-        <a href="https://kaausia.gumroad.com" class="price-btn price-btn-primary" target="_blank">구매하기</a>
+        <a href="https://kaausia.gumroad.com/l/eidos-credits-1200" class="price-btn price-btn-primary" target="_blank">Buy Now</a>
       </div>
 
       <div class="price-card">
         <div class="price-name">POWER</div>
         <div class="price-amount">$39<span></span></div>
-        <div class="price-credits">3,000 크레딧</div>
+        <div class="price-credits">3,000 credits</div>
         <ul class="price-features">
-          <li>AI 채팅 3,000회</li>
-          <li>코드 수정 1,000회</li>
-          <li>모든 Pro 기능 포함</li>
-          <li>팀 단위 사용 최적</li>
-          <li>50% 더 저렴</li>
+          <li>3,000 AI chat responses</li>
+          <li>1,000 code edits</li>
+          <li>All Pro features included</li>
+          <li>Ideal for heavy users</li>
+          <li>50% cheaper per credit</li>
         </ul>
-        <a href="https://kaausia.gumroad.com" class="price-btn price-btn-secondary" target="_blank">구매하기</a>
-      </div>
-    </div>
-
-    <div class="free-tier">
-      <div class="free-tier-title">💳 무료로 먼저 체험하세요</div>
-      <div class="free-tier-desc">앱 설치 시 100 크레딧이 자동 지급됩니다.<br>신용카드 없이 AI 코드 수정을 바로 체험할 수 있습니다.</div>
+        <a href="https://kaausia.gumroad.com/l/eidos-credits-3000" class="price-btn price-btn-secondary" target="_blank">Buy Now</a>
+      <div class="free-tier-title">💳 Try It Free First</div>
+      <div class="free-tier-desc">Install the app and get 100 credits automatically.<br>No credit card required. Experience AI code editing right away.</div>
     </div>
   </div>
 </section>
@@ -655,29 +648,29 @@ footer {
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="container">
-    <div class="section-label">자주 묻는 질문</div>
-    <h2 class="section-title">궁금한 점이 있으신가요?</h2>
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Got Questions?</h2>
 
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">크레딧은 만료되나요?</div>
-        <div class="faq-a">아니요, 충전한 크레딧은 만료되지 않습니다. 구독이 아니라 크레딧 방식이기 때문에 사용한 만큼만 차감됩니다.</div>
+        <div class="faq-q">Do credits expire?</div>
+        <div class="faq-a">No. Credits never expire. Since it's not a subscription, you're only charged for what you use.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">어떤 언어를 지원하나요?</div>
-        <div class="faq-a">Python, JavaScript, TypeScript, Java, C++, Go 등 주요 프로그래밍 언어를 모두 지원합니다. LLM 기반이라 대부분의 언어에서 동작합니다.</div>
+        <div class="faq-q">Which programming languages are supported?</div>
+        <div class="faq-a">Python, JavaScript, TypeScript, Java, C++, Go, and more. Since it's LLM-based, it works with virtually any language.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">내 코드는 어디에 저장되나요?</div>
-        <div class="faq-a">코드는 AI 처리를 위해 서버로 전송되지만 저장하지 않습니다. 처리 완료 후 즉시 폐기됩니다. 민감한 정보는 붙여넣지 않으시길 권장합니다.</div>
+        <div class="faq-q">Where is my code stored?</div>
+        <div class="faq-a">Your code is sent to our server for AI processing but is never stored. It's discarded immediately after processing. Avoid pasting sensitive credentials.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">환불이 가능한가요?</div>
-        <div class="faq-a">구매 후 7일 이내, 크레딧을 50% 미만으로 사용한 경우 전액 환불해드립니다. Gumroad 메시지로 문의해주세요.</div>
+        <div class="faq-q">Can I get a refund?</div>
+        <div class="faq-a">Full refund within 7 days of purchase if less than 50% of credits have been used. Just message us on Gumroad.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Windows만 지원하나요?</div>
-        <div class="faq-a">현재는 Windows 10/11 (64비트)을 지원합니다. macOS 지원은 추후 업데이트 예정입니다.</div>
+        <div class="faq-q">Is it Windows only?</div>
+        <div class="faq-a">Currently Windows 10/11 (64-bit) only. macOS support is planned for a future update.</div>
       </div>
     </div>
   </div>
@@ -687,10 +680,10 @@ footer {
 <section class="cta-section">
   <div class="container">
     <div class="cta-box">
-      <h2 class="cta-title">지금 바로 시작하세요</h2>
-      <p class="cta-desc">무료 100 크레딧으로 신용카드 없이 체험하세요.</p>
+      <h2 class="cta-title">Start Building Faster Today</h2>
+      <p class="cta-desc">100 free credits. No credit card. No sign-up.</p>
       <a href="https://kaausia.gumroad.com" class="btn-primary" target="_blank" style="display:inline-flex;">
-        ⚡ 무료로 시작하기
+        ⚡ Start for Free
       </a>
     </div>
   </div>
@@ -705,7 +698,7 @@ footer {
 </footer>
 
 <script>
-// Intersection Observer — reveal 애니메이션
+// Intersection Observer — reveal animation
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -716,7 +709,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal, .step').forEach(el => observer.observe(el));
 
-// FAQ 토글
+// FAQ toggle
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.parentElement;
